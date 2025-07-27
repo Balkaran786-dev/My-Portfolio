@@ -24,11 +24,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background: var(--bg-primary);
-    background-image:
-        radial-gradient(circle at 20% 10%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 10%, rgba(236, 72, 153, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 50% 10%, rgba(245, 158, 11, 0.15) 0%, transparent 50%);
+    background: var(--bg-dark);
     overflow-x: hidden;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -65,7 +61,7 @@ html {
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--bg-primary);
+    background: var(--bg-dark);
     z-index: 1000;
     padding: 1rem 0;
     transition: none;
@@ -209,7 +205,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--bg-primary);
+    background: var(--bg-dark);
     position: relative;
     text-align: center;
     padding: 6rem 2rem 2rem;
@@ -528,7 +524,7 @@ html {
         left: -100%;
         top: 50px;
         flex-direction: column;
-        background-color: var(--bg-primary);
+        background-color: var(--bg-dark);
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -694,12 +690,48 @@ html {
         width: 50px;
         height: 50px;
     }
+
+    /* Add mobile-specific background elements to fill empty space */
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+            radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
+            radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.08) 0%, transparent 35%),
+            radial-gradient(circle at 50% 60%, rgba(245, 158, 11, 0.06) 0%, transparent 30%),
+            radial-gradient(circle at 25% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 35%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* Add subtle animated dots pattern */
+    .hero::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+            radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 50px 50px, 80px 80px, 60px 60px, 70px 70px;
+        z-index: 1;
+        pointer-events: none;
+        animation: float 20s ease-in-out infinite;
+    }
 }
 
 /* About Section */
 .about {
     padding: 5rem 0;
-    background: var(--bg-primary);
+    background: var(--bg-dark);
     position: relative;
     overflow: hidden;
 }
