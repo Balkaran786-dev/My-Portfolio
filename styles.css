@@ -32,6 +32,8 @@ body {
     overflow-x: hidden;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    width: 100%;
+    max-width: 100vw;
 }
 
 body.loaded {
@@ -121,6 +123,10 @@ html {
 }
 
 .nav-buttons {
+    display: none;
+}
+
+.nav-buttons-desktop {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -163,6 +169,17 @@ html {
     display: none;
     flex-direction: column;
     cursor: pointer;
+}
+
+/* Desktop/Laptop styles */
+@media (min-width: 769px) {
+    .nav-buttons-desktop {
+        display: flex;
+    }
+
+    .hamburger {
+        display: none;
+    }
 }
 
 .hamburger span {
@@ -474,6 +491,38 @@ html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Ensure full width coverage */
+    html, body {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .nav-container {
+        padding: 0 0.8rem;
+        justify-content: flex-start;
+        gap: 1rem;
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    .nav-logo {
+        order: 2;
+        flex: 1;
+        text-align: right;
+        font-size: 1.2rem;
+        padding-right: 0.5rem;
+    }
+
+    .hamburger {
+        display: flex;
+        order: 1;
+    }
+
+    .nav-buttons-desktop {
+        display: none;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -487,6 +536,7 @@ html {
         padding: 2rem 0;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 1000;
+        order: 3;
     }
 
     .nav-menu.active {
@@ -497,11 +547,11 @@ html {
         margin: 1rem 0;
     }
 
-    .nav-buttons {
+    .nav-menu .nav-buttons {
         display: flex;
         flex-direction: row;
         gap: 0.8rem;
-        margin-top: 0.8rem;
+        margin-top: 1.5rem;
         padding: 0 2rem;
         justify-content: center;
     }
@@ -515,16 +565,11 @@ html {
         white-space: nowrap;
     }
 
-    .hamburger {
-        display: flex;
-    }
-
     .navbar {
         padding: 0.4rem 0;
-    }
-
-    .nav-container {
-        padding: 0 0.8rem;
+        margin: 0;
+        width: 100%;
+        max-width: 100vw;
     }
 
     .nav-logo {
@@ -560,6 +605,29 @@ html {
 
     .contact-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-info {
+        margin-bottom: 1rem;
+    }
+
+    .contact-item {
+        margin-bottom: 1.5rem;
     }
 
     .footer-content {
@@ -572,19 +640,59 @@ html {
     }
 
     .container {
-        padding: 0 1rem;
+        padding: 0 1.5rem;
+        margin: 0 0.5rem;
     }
 
     .hero {
-        padding: 8rem 2rem 4rem;
+        padding: 8rem 1rem 4rem;
+        margin: 0 0.5rem;
+        width: calc(100% - 1rem);
+        max-width: calc(100vw - 1rem);
+        overflow: hidden;
     }
 
     .section {
         padding: 4rem 0;
+        margin: 0 0.5rem;
+        width: calc(100% - 1rem);
+        max-width: calc(100vw - 1rem);
+        overflow: hidden;
+    }
+
+    .about {
+        margin: 0 0.5rem;
+        width: calc(100% - 1rem);
+        max-width: calc(100vw - 1rem);
+        overflow: hidden;
     }
 
     .floating-shapes .shape {
         opacity: 0.3;
+    }
+
+    /* Hide problematic shapes on mobile to prevent overflow */
+    .shape-2, .shape-3, .shape-5, .shape-6, .shape-8 {
+        display: none;
+    }
+
+    /* Adjust remaining shapes to stay within viewport */
+    .shape-1 {
+        left: 5%;
+        width: 60px;
+        height: 60px;
+    }
+
+    .shape-4 {
+        left: 10%;
+        width: 80px;
+        height: 80px;
+    }
+
+    .shape-7 {
+        left: 3%;
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -967,6 +1075,13 @@ section {
 
 
 @media (max-width: 480px) {
+    /* Ensure full width coverage on very small screens */
+    html, body {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
     .hero-title {
         font-size: 2rem;
         line-height: 1.1;
@@ -1011,15 +1126,70 @@ section {
     }
 
     .contact-form {
-        padding: 1.5rem;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+
+    .contact-item {
+        margin-bottom: 1rem;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .contact-item i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    .contact-item div {
+        flex: 1;
+    }
+
+    .contact-item h4 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .contact-item p {
+        font-size: 0.9rem;
+        word-break: break-word;
     }
 
     .hero {
-        padding: 7rem 1rem 3rem;
+        padding: 7rem 0.5rem 3rem;
+        margin: 0 0.75rem;
+        width: calc(100% - 1.5rem);
+        max-width: calc(100vw - 1.5rem);
     }
 
     .container {
-        padding: 0 0.5rem;
+        padding: 0 1rem;
+        margin: 0 0.75rem;
+    }
+
+    /* Add margins to all sections for small screens */
+    section:not(.navbar) {
+        margin: 0 0.75rem;
+        width: calc(100% - 1.5rem);
+        max-width: calc(100vw - 1.5rem);
     }
 
     .work-grid {
