@@ -18,8 +18,8 @@ document.querySelectorAll('.resume-download').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
 
-        const resumeUrl = 'resume.pdf';
-        const fileName = 'Balkaran_Singh_Resume.pdf';
+        const resumeUrl = 'Resume.pdf';
+        const fileName = 'Resume.pdf';
 
         // Try multiple download methods for better compatibility
         try {
