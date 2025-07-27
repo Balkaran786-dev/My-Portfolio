@@ -13,39 +13,7 @@ document.querySelectorAll('.nav-link, .nav-btn').forEach(n => n.addEventListener
     navMenu.classList.remove('active');
 }));
 
-// Enhanced resume download functionality for better mobile compatibility
-document.querySelectorAll('.resume-download').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
 
-        const resumeUrl = 'Resume.pdf';
-        const fileName = 'Resume.pdf';
-
-        // Try multiple download methods for better compatibility
-        try {
-            // Method 1: Create a temporary download link
-            const downloadLink = document.createElement('a');
-            downloadLink.href = resumeUrl;
-            downloadLink.download = fileName;
-            downloadLink.style.display = 'none';
-
-            // Add to DOM, click, and remove
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-
-            // Method 2: Fallback - open in new tab for mobile browsers
-            setTimeout(() => {
-                window.open(resumeUrl, '_blank');
-            }, 100);
-
-        } catch (error) {
-            console.error('Download failed:', error);
-            // Final fallback - direct navigation
-            window.location.href = resumeUrl;
-        }
-    });
-});
 
 // Smooth scrolling for navigation links - FULL PAGE VIEW
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
