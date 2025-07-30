@@ -103,7 +103,7 @@
                         scalable web applications. I specialize in modern technologies like <strong>React, Node.js,
                             MongoDB, Express, Tailwind CSS</strong>, and <strong>Cloudinary</strong>. Alongside
                         development, I'm passionate about <strong>Competitive Programming</strong> — having solved
-                        <a href="https://leetcode.com/u/Balkaran786/" target="_blank">700+ problems on LeetCode</a>,
+                        <a href="https://leetcode.com/u/Balkaran786/" target="_blank">800+ problems on LeetCode</a>,
                         <a href="https://www.geeksforgeeks.org/user/balkara3a6e/" target="_blank">100+ on GFG</a>, and
                         earned
                         <a href="https://www.naukri.com/code360/profile/be3ea7c5-ada2-4752-af60-cdfd2fd236ab" target="_blank">30+ badges
@@ -258,6 +258,11 @@
 
                     // Reset form
                     document.getElementById('contact-form').reset();
+
+                    // Hide success message after 5 seconds
+                    setTimeout(function() {
+                        statusMessage.style.display = 'none';
+                    }, 5000);
 
                 }, function(error) {
                     // Error
