@@ -75,8 +75,8 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
     console.log('Portfolio loaded successfully');
 
-    // Start typewriter animation
-    startTypewriterAnimation();
+    // Start typewriter animation - DISABLED
+    // startTypewriterAnimation();
 });
 
 // Error handling for resources
@@ -89,7 +89,8 @@ if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
 }
 
-// Typewriter animation function
+// Typewriter animation function - DISABLED
+/*
 function startTypewriterAnimation() {
     const typingElement = document.querySelector('.typing-text');
     if (!typingElement) return;
@@ -138,6 +139,7 @@ function startTypewriterAnimation() {
         typeWriter();
     }, 1500);
 }
+*/
 
 // Optimized parallax effect - single scroll listener
 let ticking = false;
